@@ -12,7 +12,7 @@ module.exports = function(app, middleware, db) {
   	});
   });
 
-  // POST /users/login
+  // POST /users/login --> will generate Auth Token
   app.post('/users/login', function (req, res) {
   	var body = _.pick(req.body, 'email', 'password');
   	var userInstance;
