@@ -1,6 +1,15 @@
 var _ = require('underscore');
 
 module.exports = function(app, middleware, db) {
+  // GET /users
+  app.get('/users', function(req,res){
+  	db.user.findAll().then(function(todos) {
+  		res.json(todos);
+  	}, function(e) {
+  		res.status(500).send();
+  	});
+  });
+
   // POST /users
   app.post('/users', function (req, res) {
   	var body = _.pick(req.body, 'email', 'password');
@@ -12,7 +21,7 @@ module.exports = function(app, middleware, db) {
   	});
   });
 
-  // POST /users/login
+    // POST /users/login
   app.post('/users/login', function (req, res) {
   	var body = _.pick(req.body, 'email', 'password');
   	var userInstance;

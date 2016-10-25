@@ -1,6 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('sys_users', {
-			user_code: {
+	return sequelize.define('sys_branches', {
+    	organization_code: {
+    		type: DataTypes.STRING,
+        primaryKey: true,
+    		allowNull: false,
+    		validate: {
+    			len: [1, 30]
+    		}
+    	},
+			branch_code: {
 				type: DataTypes.STRING,
 				primaryKey: true,
 				allowNull: false,
@@ -8,71 +16,11 @@ module.exports = function(sequelize, DataTypes) {
 					len: [1, 30]
 				}
 			},
-    	organization_code: {
-    		type: DataTypes.STRING,
-    		allowNull: false,
-    		validate: {
-    			len: [1, 30]
-    		}
-    	},
-      default_branch_code: {
+			branch_name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,30]
-        }
-      },
-			password_user: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,30]
-        }
-      },
-			first_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,50]
-        }
-      },
-			middle_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,50]
-        }
-      },
-			last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,50]
-        }
-      },
-			born_place: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,15]
-        }
-      },
-			born_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-			gender: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-			blood_type: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
+          len: [1,100]
         }
       },
       address_line_1: {
@@ -96,28 +44,56 @@ module.exports = function(sequelize, DataTypes) {
           len: [1,50]
         }
       },
-			zip_code: {
+      city: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1,30]
+        }
+      },
+      state: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1,30]
+        }
+      },
+      country: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1,30]
+        }
+      },
+      zip_code: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
           len: [1,10]
         }
       },
+      business_area: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1,30]
+        }
+      },
+			branch_is_ho: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1]
+        }
+      },
+      enabled: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        validate: {
+          len: [1]
+        }
+      },
       business_phone_number: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1,20]
-        }
-      },
-      home_phone_number: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1,20]
-        }
-      },
-			cell_phone_number: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
@@ -137,25 +113,6 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1,100]
         }
-      },
-			enabled: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        validate: {
-          len: [1]
-        }
-      },
-      date_start: {
-        type: DataTypes.DATE,
-        allowNull: true,
-      },
-			date_end: {
-        type: DataTypes.DATE,
-        allowNull: true,
-      },
-			password_expired_date: {
-        type: DataTypes.DATE,
-        allowNull: true,
       },
       created_by: {
         type: DataTypes.STRING,
@@ -185,6 +142,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     },{
       timestamps: false,
-      tableName: 'sys_users'
+      tableName: 'sys_branches'
 	});
 };

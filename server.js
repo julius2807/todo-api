@@ -15,7 +15,7 @@ require('./controllers/indexController.js')(app, middleware, db);
 require('./controllers/todoController.js')(app, middleware, db);
 require('./controllers/userController.js')(app, middleware, db);
 
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync().then(function() {
 	app.listen(PORT, function() {
 		console.log('Express listening on port ' + PORT + '!');
 	});

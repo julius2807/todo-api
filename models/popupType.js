@@ -1,161 +1,156 @@
 module.exports = function(sequelize, DataTypes) {
-	return sequelize.define('sys_users', {
-			user_code: {
-				type: DataTypes.STRING,
-				primaryKey: true,
-				allowNull: false,
-				validate: {
-					len: [1, 30]
-				}
-			},
-    	organization_code: {
+	return sequelize.define('sys_popup_types', {
+    	popup_name: {
     		type: DataTypes.STRING,
+        primaryKey: true,
     		allowNull: false,
     		validate: {
     			len: [1, 30]
     		}
     	},
-      default_branch_code: {
+			application_owner: {
+				type: DataTypes.STRING,
+				allowNull: true,
+				validate: {
+					len: [1, 30]
+				}
+			},
+			description: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,30]
+          len: [1,255]
         }
       },
-			password_user: {
+			query: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [1,30]
-        }
       },
-			first_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,50]
-        }
-      },
-			middle_name: {
+			key_field: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1,50]
         }
       },
-			last_name: {
+			parent_field_1: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1,50]
         }
       },
-			born_place: {
+			parent_field_2: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [1,15]
-        }
-      },
-			born_date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-			gender: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-			blood_type: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      address_line_1: {
-        type: DataTypes.STRING,
-        allowNull: true,
         validate: {
           len: [1,50]
         }
       },
-      address_line_2: {
+			parent_field_3: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
           len: [1,50]
         }
       },
-      address_line_3: {
+			parent_field_4: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
           len: [1,50]
         }
       },
-			zip_code: {
+			parent_field_5: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,10]
+          len: [1,50]
         }
       },
-      business_phone_number: {
+			criteria_field_1: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,20]
+          len: [1,50]
         }
       },
-      home_phone_number: {
+			criteria_label_1: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,20]
+          len: [1,50]
         }
       },
-			cell_phone_number: {
+			criteria_field_2: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,20]
+          len: [1,50]
         }
       },
-      fax_number: {
+			criteria_label_2: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,20]
+          len: [1,50]
         }
       },
-      email: {
+			order_field_1: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1,100]
+          len: [1,50]
         }
       },
-			enabled: {
+			order_field_2: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         validate: {
-          len: [1]
+          len: [1,50]
         }
       },
-      date_start: {
-        type: DataTypes.DATE,
-        allowNull: true,
+			value_field_1: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
       },
-			date_end: {
-        type: DataTypes.DATE,
-        allowNull: true,
+			value_field_2: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
       },
-			password_expired_date: {
-        type: DataTypes.DATE,
-        allowNull: true,
+			value_field_3: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
+      },
+			value_field_4: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
+      },
+			value_field_5: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
+      },
+			displayed_field: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [1,50]
+        }
       },
       created_by: {
         type: DataTypes.STRING,
@@ -185,6 +180,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     },{
       timestamps: false,
-      tableName: 'sys_users'
-	});
+      tableName: 'sys_popup_types'
+    });
 };
